@@ -1,67 +1,114 @@
-Drowsiness Detection System
+Driver Drowsiness Detection System
 
-This project detects driver drowsiness in real-time using a webcam. It includes two detection methods:
+Project Overview
 
-1)Eye-only detection: Uses Eye Aspect Ratio (EAR) to detect if the eyes are closed.
+This project detects driver drowsiness in real-time using computer vision techniques and a webcam. It monitors facial features such as eye closure and yawning to identify signs of fatigue and alert the user, helping prevent accidents.
 
-2)EAR + MAR detection: Uses Eye Aspect Ratio (EAR) + Mouth Aspect Ratio (MAR) to detect both eye closure and yawning.
+Tech Stack
 
-Features:
+1)Python
 
-1)Real-time drowsiness detection using OpenCV and MediaPipe.
+2)OpenCV
 
-2)Alerts the user when drowsiness is detected.
+3)MediaPipe
 
-3)Supports two modes:-Eye-only: Simple eye closure detection. -EAR + MAR: Eye + Mouth detection for better accuracy.
+4)NumPy
+
+
+Key Features
+
+1)Real-time face tracking using webcam
+
+2)Eye closure detection using Eye Aspect Ratio (EAR)
+
+3)Yawning detection using Mouth Aspect Ratio (MAR)
+
+4)Two detection modes:
+
+    Eye-only detection
+    EAR + MAR combined detection for improved accuracy
+    
+5)Visual alert system when drowsiness is detected
+
+
+Methodology
+
+1. Eye-Only Detection
+
+   Uses Eye Aspect Ratio (EAR) to monitor eye state
+   
+   If EAR falls below a threshold, eyes are considered closed
+   
+   Continuous eye closure triggers drowsiness alert
+
+2. EAR + MAR Detection
+
+Uses EAR for eye closure detection
+
+Uses Mouth Aspect Ratio (MAR) to detect yawning
+
+Combines both signals to improve detection accuracy
 
 Project Structure
 
-1)Drowsiness_Detection
+ drowsiness_eye_only.py
+ 
+ drowsiness_ear_mar.py
+ 
+ README.md
 
-2)drowsiness_eye_only.py   
+Thresholds Used
 
-3)drowsiness_ear_mar.py    
+EAR Threshold: 0.25 (eye closure detection)
 
-4)README.md                   
+MAR Threshold: 0.6 (yawning detection)
 
-Note: No dataset/images are required as detection is done in real-time via webcam.
+These values can be adjusted based on user behavior and lighting conditions.
+
 
 How to Run
 
-1)Install dependencies:
-pip install opencv-python mediapipe numpy
+1. Install dependencies:
+   pip install opencv-python mediapipe numpy
 
-2)Run Eye-only detection:
-python drowsiness_eye_only.py
+2. Run Eye-only detection:
+   python drowsiness_eye_only.py
 
-3)Run EAR + MAR detection:
-python drowsiness_ear_mar.py
+3. Run EAR + MAR detection:
+   python drowsiness_ear_mar.py
+
+4. Ensure webcam is enabled
+
+Output
+
+The system opens the webcam and tracks the user's face
+  
+Detects eye closure and yawning in real-time
+  
+Displays an alert on screen when drowsiness is detected
 
 
-What happens:
+Applications
 
-1)The webcam opens and tracks the face.
-2)EAR threshold is used to detect closed eyes.
-3)MAR threshold is used to detect yawning (in EAR+MAR mode).
-4)Alerts are displayed on screen if drowsiness is detected.
+Driver safety systems
 
-Thresholds Used
-1)EAR threshold: 0.25 (for eye closure)
+Accident prevention
 
-2)MAR threshold: 0.6 (for yawning)
+Smart vehicle monitoring systems
 
-These thresholds can be adjusted depending on lighting and user behavior.
 
-Future Enhancements
+Future Improvements
 
-1)Add sound or SMS alerts when drowsiness is detected.
+Add audio alert system for stronger warning
 
-2)Combine with driver fatigue database to improve accuracy.
+Improve detection accuracy using deep learning
 
-3)Add support for multiple faces in the frame.
+Integrate with IoT-based vehicle systems
 
-Dependencies
+Deploy as a real-time application
 
-1)OpenCV (opencv-python)
-2)MediaPipe (mediapipe)
-3)NumPy (numpy)
+
+Conclusion
+
+This project demonstrates how computer vision techniques like EAR and MAR can be effectively used to detect driver drowsiness in real-time and enhance road safety.
+
